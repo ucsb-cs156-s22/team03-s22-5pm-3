@@ -2,9 +2,7 @@
 
 [![codecov](https://codecov.io/gh/ucsb-cs156-s22/team03-s22-5pm-3/branch/main/graph/badge.svg?token=SSz7cD7GUT)](https://codecov.io/gh/ucsb-cs156-s22/team03-s22-5pm-3)
 
-TODO: Add a link to the deployed Heroku app for your team here, e.g.
-
-* <https://s22-7pm-3-team02.herokuapp.com>
+* Production deployment: <https://s22-5pm-3-team02.herokuapp.com>
 
 TODO: Add correct links to the -docs and -docs qa GitHub pages sites
 
