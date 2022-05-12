@@ -3,6 +3,8 @@
 [![codecov](https://codecov.io/gh/ucsb-cs156-s22/team03-s22-5pm-3/branch/main/graph/badge.svg?token=SSz7cD7GUT)](https://codecov.io/gh/ucsb-cs156-s22/team03-s22-5pm-3)
 
 * Production deployment: <https://s22-5pm-3-team02.herokuapp.com>
+* QA deployment: <https://s22-5pm-3-team02-qa.herokuapp.com>
+
 
 TODO: Add correct links to the -docs and -docs qa GitHub pages sites
 
