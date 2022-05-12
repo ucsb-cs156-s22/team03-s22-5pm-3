@@ -6,7 +6,8 @@ TODO: Add a codecov badge for the main branch here.  What's shown is an example,
 
 TODO: Add a link to the deployed Heroku app for your team here, e.g.
 
-* <https://s22-7pm-3-team02.herokuapp.com>
+* Production deployment: <https://s22-5pm-3-team02.herokuapp.com>
+* QA deployment: <https://s22-5pm-3-team02-qa.herokuapp.com>
 
 TODO: Add correct links to the -docs and -docs qa GitHub pages sites
 
