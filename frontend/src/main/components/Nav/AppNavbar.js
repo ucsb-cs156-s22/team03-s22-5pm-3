@@ -11,14 +11,14 @@ export default function AppNavbar({ currentUser, systemInfo, doLogout, currentUr
           <AppNavbarLocalhost url={currentUrl} />
         )
       }
-      <Navbar expand="xl" variant="dark" bg="dark" sticky="top" data-testid="AppNavbar">
+      <Navbar expand="false" variant="dark" bg="dark" sticky="top" data-testid="AppNavbar">
         {/* set expand=false because nav bar is too wide */}
         <Container>
           <Navbar.Brand as={Link} to="/">
             Example
           </Navbar.Brand>
 
-          <Navbar.Toggle className="me-auto"/>
+          <Navbar.Toggle />
 
           <>
             {/* be sure that each NavDropdown has a unique id and data-testid */}
@@ -76,7 +76,7 @@ export default function AppNavbar({ currentUser, systemInfo, doLogout, currentUr
                   </NavDropdown>
                 )
               }
-              {/* {
+              {
                 hasRole(currentUser, "ROLE_USER") && (
                   <NavDropdown title="Menu Items" id="appnavbar-ucsbdiningcommonsmenuitem-dropdown" data-testid="appnavbar-ucsbdiningcommonsmenuitem-dropdown" >
                     <NavDropdown.Item as={Link} to="/ucsbdiningcommonsmenuitem/list" data-testid="appnavbar-ucsbdiningcommonsmenuitem-list">List Menu Items</NavDropdown.Item>
@@ -147,7 +147,7 @@ export default function AppNavbar({ currentUser, systemInfo, doLogout, currentUr
                     }
                   </NavDropdown>
                 )
-              } */}
+              }
             </Nav>
           {/* </Navbar.Collapse> */}
             <Nav className="ml-auto">
