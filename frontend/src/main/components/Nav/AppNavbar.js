@@ -18,7 +18,7 @@ export default function AppNavbar({ currentUser, systemInfo, doLogout, currentUr
             Example
           </Navbar.Brand>
 
-          <Navbar.Toggle />
+          <Navbar.Toggle className="me-auto"/>
 
           <>
             {/* be sure that each NavDropdown has a unique id and data-testid */}
@@ -161,7 +161,7 @@ export default function AppNavbar({ currentUser, systemInfo, doLogout, currentUr
                 )
               }
             </Nav>
-
+          </Navbar.Collapse>
             <Nav className="ml-auto">
               {/* This `nav` component contains all navigation items that show up on the right side */}
               {
@@ -175,7 +175,7 @@ export default function AppNavbar({ currentUser, systemInfo, doLogout, currentUr
                 )
               }
             </Nav>
-          </Navbar.Collapse>
+          {/* </Navbar.Collapse> */}
         </Container >
       </Navbar >
     </>
