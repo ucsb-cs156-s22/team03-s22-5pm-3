@@ -11,7 +11,7 @@ export default function AppNavbar({ currentUser, systemInfo, doLogout, currentUr
           <AppNavbarLocalhost url={currentUrl} />
         )
       }
-      <Navbar expand="false" variant="dark" bg="dark" sticky="top" data-testid="AppNavbar">
+      <Navbar expand="xl" variant="dark" bg="dark" sticky="top" data-testid="AppNavbar">
         {/* set expand=false because nav bar is too wide */}
         <Container>
           <Navbar.Brand as={Link} to="/">
@@ -76,25 +76,13 @@ export default function AppNavbar({ currentUser, systemInfo, doLogout, currentUr
                   </NavDropdown>
                 )
               }
-              {
+              {/* {
                 hasRole(currentUser, "ROLE_USER") && (
                   <NavDropdown title="Menu Items" id="appnavbar-ucsbdiningcommonsmenuitem-dropdown" data-testid="appnavbar-ucsbdiningcommonsmenuitem-dropdown" >
                     <NavDropdown.Item as={Link} to="/ucsbdiningcommonsmenuitem/list" data-testid="appnavbar-ucsbdiningcommonsmenuitem-list">List Menu Items</NavDropdown.Item>
                     {
                       hasRole(currentUser, "ROLE_ADMIN") && (
                         <NavDropdown.Item as={Link} to="/ucsbdiningcommonsmenuitem/create" data-testid="appnavbar-ucsbdiningcommonsmenuitem-create">Create Menu Items</NavDropdown.Item>
-                      )
-                    }
-                  </NavDropdown>
-                )
-              }
-              {
-                hasRole(currentUser, "ROLE_USER") && (
-                  <NavDropdown title="Menu Item Reviews" id="appnavbar-menuitemreview-dropdown" data-testid="appnavbar-menuitemreview-dropdown" >
-                    <NavDropdown.Item as={Link} to="/menuitemreview/list" data-testid="appnavbar-menuitemreview-list">List Menu Item Reviews</NavDropdown.Item>
-                    {
-                      hasRole(currentUser, "ROLE_ADMIN") && (
-                        <NavDropdown.Item as={Link} to="/menuitemreview/create" data-testid="appnavbar-menuitemreview-create">Create Menu Item Reviews</NavDropdown.Item>
                       )
                     }
                   </NavDropdown>
@@ -159,9 +147,9 @@ export default function AppNavbar({ currentUser, systemInfo, doLogout, currentUr
                     }
                   </NavDropdown>
                 )
-              }
+              } */}
             </Nav>
-          </Navbar.Collapse>
+          {/* </Navbar.Collapse> */}
             <Nav className="ml-auto">
               {/* This `nav` component contains all navigation items that show up on the right side */}
               {
@@ -175,7 +163,7 @@ export default function AppNavbar({ currentUser, systemInfo, doLogout, currentUr
                 )
               }
             </Nav>
-          {/* </Navbar.Collapse> */}
+          </Navbar.Collapse>
         </Container >
       </Navbar >
     </>
