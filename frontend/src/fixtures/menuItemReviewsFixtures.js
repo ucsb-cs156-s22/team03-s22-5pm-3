@@ -1,5 +1,3 @@
-import { getDefaultNormalizer } from "@testing-library/react"
-
 const menuItemReviewsFixtures = {
     oneMenuItemReview: {
         "id": "1",
