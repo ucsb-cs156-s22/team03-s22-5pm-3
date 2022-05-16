@@ -7,7 +7,7 @@ import { hasRole } from "main/utils/currentUser";
 
 export function cellToAxiosParamsDelete(cell) {
     return {
-        url: "/api/ucsbdiningcommonsmenuitem",
+        url: "/api/UCSBDiningCommonsMenuItem",
         method: "DELETE",
         params: {
             id: cell.row.values.id
@@ -15,7 +15,7 @@ export function cellToAxiosParamsDelete(cell) {
     }
 }
 
-export default function DiningCommonsTable({ menuItem, currentUser }) {
+export default function UCSBDiningCommonsMenuItemTable({ menuItem, currentUser }) {
 
     // const navigate = useNavigate();
 
@@ -27,7 +27,7 @@ export default function DiningCommonsTable({ menuItem, currentUser }) {
     const deleteMutation = useBackendMutation(
         cellToAxiosParamsDelete,
         { onSuccess: onDeleteSuccess },
-        ["/api/ucsbdiningcommonsmenuitem/all"]
+        ["/api/UCSBDiningCommonsMenuItem/all"]
     );
     // Stryker enable all 
 
@@ -45,11 +45,11 @@ export default function DiningCommonsTable({ menuItem, currentUser }) {
         },
         {
             Header: 'Name',
-            id: 'name',
+            accessor: 'name',
         },
         {
             Header: 'Station',
-            id: 'station', // needed for tests
+            accessor: 'station',
         }
     ];
 
