@@ -142,8 +142,8 @@ describe("MenuItemReviewsIndexPage tests", () => {
         setupAdminUser();
 
         const queryClient = new QueryClient();
-        axiosMock.onGet("/api/MenuItemReview/all").reply(200, menuItemReviewsFixtures.threeDates);
-        axiosMock.onDelete("/api/MenuItemReview").reply(200, "MenuItemReview with id 1 was deleted");
+        axiosMock.onGet("/api/MenuItemReview/all").reply(200, menuItemReviewsFixtures.threeMenuItemReviews);
+        axiosMock.onDelete("/api/MenuItemReview").reply(200, "MenuItemReview with id 69 was deleted");
 
 
         const { getByTestId } = render(
@@ -156,7 +156,7 @@ describe("MenuItemReviewsIndexPage tests", () => {
 
         await waitFor(() => { expect(getByTestId(`${testId}-cell-row-0-col-id`)).toBeInTheDocument(); });
 
-       expect(getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("69"); 
+        expect(getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("69"); 
 
 
         const deleteButton = getByTestId(`${testId}-cell-row-0-col-Delete-button`);
