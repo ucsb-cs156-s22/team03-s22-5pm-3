@@ -1,26 +1,16 @@
 import OurTable, { ButtonColumn} from "main/components/OurTable";
 import { useBackendMutation } from "main/utils/useBackend";
-import {  onDeleteSuccess } from "main/utils/UCSBDateUtils"
+import {  cellToAxiosParamsDelete, onDeleteSuccess } from "main/utils/MenuItemReviewUtils"
 // import { useNavigate } from "react-router-dom";
 import { hasRole } from "main/utils/currentUser";
 
-
-export function cellToAxiosParamsDelete(cell) {
-    return {
-        url: "/api/MenuItemReview",
-        method: "DELETE",
-        params: {
-            id: cell.row.values.id
-        }
-    }
-}
 
 export default function MenuItemReviewsTable({ menuItemReviews, currentUser }) {
 
     // const navigate = useNavigate();
 
     // const editCallback = (cell) => {
-    //     navigate(`/ucsbdates/edit/${cell.row.values.id}`)
+    //     navigate(`/MenuItemReview/edit/${cell.row.values.id}`)
     // }
 
     // Stryker disable all : hard to test for query caching
