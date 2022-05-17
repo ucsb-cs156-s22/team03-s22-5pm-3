@@ -13,6 +13,8 @@ import UCSBDatesIndexPage from "main/pages/UCSBDates/UCSBDatesIndexPage";
 import UCSBDatesCreatePage from "main/pages/UCSBDates/UCSBDatesCreatePage";
 import UCSBDatesEditPage from "main/pages/UCSBDates/UCSBDatesEditPage";
 
+import MenuItemReviewsIndexPage from "main/pages/MenuItemReviews/MenuItemReviewsIndexPage";
+
 
 import { hasRole, useCurrentUser } from "main/utils/currentUser";
 
@@ -62,6 +64,14 @@ function App() {
             </>
           )
         }
+        {
+          hasRole(currentUser, "ROLE_USER") && (
+            <>
+              <Route exact path="/menuitemreview/list" element={<MenuItemReviewsIndexPage />} />
+            </>
+          )
+        }
+        
 
       </Routes>
     </BrowserRouter>
