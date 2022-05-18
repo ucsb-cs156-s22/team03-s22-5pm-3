@@ -10,7 +10,7 @@ export function cellToAxiosParamsDelete(cell) {
         url: "/api/recommendations",
         method: "DELETE",
         params: {
-            code: cell.row.values.code
+            requesterEmail: cell.row.values.requesterEmail
         }
     }
 }
@@ -57,8 +57,8 @@ export default function RecommendationsTable({ recommendations, currentUser }) {
         },
         {
             Header: 'Done',
-            accessor: 'done',
-            accessor: (row, _rowIndex) => String(row.hasDiningCam)
+            id: 'done',
+            accessor: (row, _rowIndex) => String(row.done)
         }
     ];
 

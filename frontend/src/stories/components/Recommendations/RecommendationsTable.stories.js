@@ -22,8 +22,8 @@ Empty.args = {
 
 export const ThreeDates = Template.bind({});
 
-ThreeDates.args = {
-    recommendations: recommendationsFixtures.threeCommons
+ThreeRecommendations.args = {
+    recommendations: recommendationsFixtures.threeRecommendations
 };
 
 
