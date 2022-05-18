@@ -1,12 +1,11 @@
-import { fireEvent, render, waitFor } from "@testing-library/react";
+import { _fireEvent, render, _waitFor } from "@testing-library/react";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { MemoryRouter } from "react-router-dom";
-import RecommendationsIndexPage from "main/pages/Recommendations/RecommendationsIndexPage";
+import UCSBDiningCommonsMenuItemIndexPage from "main/pages/UCSBDiningCommonsMenuItem/UCSBDiningCommonsMenuItemIndexPage";
 
 
 import { apiCurrentUserFixtures } from "fixtures/currentUserFixtures";
 import { systemInfoFixtures } from "fixtures/systemInfoFixtures";
-import { diningCommonsFixtures } from "fixtures/diningCommonsFixtures";
 import axios from "axios";
 import AxiosMockAdapter from "axios-mock-adapter";
 import _mockConsole from "jest-mock-console";
@@ -22,11 +21,11 @@ jest.mock('react-toastify', () => {
     };
 });
 
-describe("RecommendationsIndexPage tests", () => {
+describe("UCSBDiningCommonsMenuItemIndexPage tests", () => {
 
     const axiosMock =new AxiosMockAdapter(axios);
 
-    const testId = "RecommendationsTable";
+    const _testId = "UCSBDiningCommonsMenuItemTable";
 
     const setupUserOnly = () => {
         axiosMock.reset();
@@ -45,30 +44,29 @@ describe("RecommendationsIndexPage tests", () => {
     test("renders without crashing for regular user", () => {
         setupUserOnly();
         const queryClient = new QueryClient();
-        axiosMock.onGet("/api/recommendations/all").reply(200, []);
+        axiosMock.onGet("/api/ucsbdiningcommonsmenuitem/all").reply(200, []);
 
         render(
             <QueryClientProvider client={queryClient}>
                 <MemoryRouter>
-                    <RecommendationsIndexPage />
+                    <UCSBDiningCommonsMenuItemIndexPage />
                 </MemoryRouter>
             </QueryClientProvider>
         );
-
-
     });
 
     test("renders without crashing for admin user", () => {
         setupAdminUser();
         const queryClient = new QueryClient();
-        axiosMock.onGet("/api/recommendations/all").reply(200, []);
+        axiosMock.onGet("/api/ucsbdiningcommonsmenuitem/all").reply(200, []);
 
         render(
             <QueryClientProvider client={queryClient}>
                 <MemoryRouter>
-                    <RecommendationsIndexPage />
+                    <UCSBDiningCommonsMenuItemIndexPage />
                 </MemoryRouter>
             </QueryClientProvider>
         );
+    });
 
-
+});
