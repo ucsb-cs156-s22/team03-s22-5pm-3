@@ -1,8 +1,7 @@
-import { _fireEvent, render, _waitFor } from "@testing-library/react";
+import { fireEvent, render, waitFor } from "@testing-library/react";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { MemoryRouter } from "react-router-dom";
-import UCSBDiningCommonsMenuItemIndexPage from "main/pages/UCSBDiningCommonsMenuItem/UCSBDiningCommonsMenuItemIndexPage";
-
+import RecommendationsIndexPage from "main/pages/Recommendations/RecommendationsIndexPage";
 
 import { apiCurrentUserFixtures } from "fixtures/currentUserFixtures";
 import { systemInfoFixtures } from "fixtures/systemInfoFixtures";
@@ -21,11 +20,11 @@ jest.mock('react-toastify', () => {
     };
 });
 
-describe("UCSBDiningCommonsMenuItemIndexPage tests", () => {
+describe("RecommendationsIndexPage tests", () => {
 
     const axiosMock =new AxiosMockAdapter(axios);
 
-    const _testId = "UCSBDiningCommonsMenuItemTable";
+    const testId = "RecommendationsTable";
 
     const setupUserOnly = () => {
         axiosMock.reset();
@@ -44,29 +43,33 @@ describe("UCSBDiningCommonsMenuItemIndexPage tests", () => {
     test("renders without crashing for regular user", () => {
         setupUserOnly();
         const queryClient = new QueryClient();
-        axiosMock.onGet("/api/ucsbdiningcommonsmenuitem/all").reply(200, []);
+        axiosMock.onGet("/api/recommendations/all").reply(200, []);
 
         render(
             <QueryClientProvider client={queryClient}>
                 <MemoryRouter>
-                    <UCSBDiningCommonsMenuItemIndexPage />
+                    <RecommendationsIndexPage />
                 </MemoryRouter>
             </QueryClientProvider>
         );
+
+
     });
 
     test("renders without crashing for admin user", () => {
         setupAdminUser();
         const queryClient = new QueryClient();
-        axiosMock.onGet("/api/ucsbdiningcommonsmenuitem/all").reply(200, []);
+        axiosMock.onGet("/api/recommendations/all").reply(200, []);
 
         render(
             <QueryClientProvider client={queryClient}>
                 <MemoryRouter>
-                    <UCSBDiningCommonsMenuItemIndexPage />
+                    <RecommendationsIndexPage />
                 </MemoryRouter>
             </QueryClientProvider>
         );
+
+
     });
 
 });
