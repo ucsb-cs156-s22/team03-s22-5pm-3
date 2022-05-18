@@ -20,7 +20,7 @@ Empty.args = {
     recommendations: []
 };
 
-export const ThreeDates = Template.bind({});
+export const ThreeRecommendations = Template.bind({});
 
 ThreeRecommendations.args = {
     recommendations: recommendationsFixtures.threeRecommendations
