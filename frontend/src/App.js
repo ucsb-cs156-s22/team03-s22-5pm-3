@@ -15,7 +15,7 @@ import UCSBDatesEditPage from "main/pages/UCSBDates/UCSBDatesEditPage";
 
 import MenuItemReviewsIndexPage from "main/pages/MenuItemReviews/MenuItemReviewsIndexPage";
 
-import RecommendationsIndexPage from "main/pages/MenuItemReviews/RecommendationsIndexPage";
+import RecommendationsIndexPage from "main/pages/Recommendations/RecommendationsIndexPage";
 
 import { hasRole, useCurrentUser } from "main/utils/currentUser";
 
