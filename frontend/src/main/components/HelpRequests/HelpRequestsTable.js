@@ -58,7 +58,7 @@ export default function HelpRequestsTable({ helpRequests, currentUser }) {
     const columnsIfAdmin = [
         ...columns,
         // ButtonColumn("Edit", "primary", editCallback, "UCSBDatesTable"),
-        ButtonColumn("Delete", "danger", deleteCallback, "UCSBDatesTable")
+        ButtonColumn("Delete", "danger", deleteCallback, "HelpRequestsTable")
     ];
 
     const columnsToDisplay = hasRole(currentUser, "ROLE_ADMIN") ? columnsIfAdmin : columns;

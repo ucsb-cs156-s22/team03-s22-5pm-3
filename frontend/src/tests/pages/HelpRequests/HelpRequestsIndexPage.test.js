@@ -1,4 +1,4 @@
-import { _fireEvent, render, waitFor } from "@testing-library/react";
+import { fireEvent, render, waitFor } from "@testing-library/react";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { MemoryRouter } from "react-router-dom";
 
@@ -140,14 +140,14 @@ describe("HelpRequestsIndexPage tests", () => {
         setupAdminUser();
 
         const queryClient = new QueryClient();
-        axiosMock.onGet("/api/ucsbdates/all").reply(200, ucsbDatesFixtures.threeDates);
-        axiosMock.onDelete("/api/ucsbdates").reply(200, "UCSBDate with id 1 was deleted");
+        axiosMock.onGet("/api/helprequests/all").reply(200, helpRequestsFixtures.threeHelpRequests);
+        axiosMock.onDelete("/api/helprequests").reply(200, "HelpRequest with id 1 was deleted");
 
 
         const { getByTestId } = render(
             <QueryClientProvider client={queryClient}>
                 <MemoryRouter>
-                    <UCSBDatesIndexPage />
+                    <HelpRequestsIndexPage />
                 </MemoryRouter>
             </QueryClientProvider>
         );
@@ -162,7 +162,7 @@ describe("HelpRequestsIndexPage tests", () => {
        
         fireEvent.click(deleteButton);
 
-        await waitFor(() => { expect(mockToast).toBeCalledWith("UCSBDate with id 1 was deleted") });
+        await waitFor(() => { expect(mockToast).toBeCalledWith("HelpRequest with id 1 was deleted") });
 
     });
 
