@@ -70,7 +70,7 @@ describe("ArticlesTable tests", () => {
 
 
     const expectedHeaders = ['ID', 'Title', 'URL', 'Explanation', 'Email', 'Date Added'];
-    const expectedFields = ['id', 'title','url', 'explanation','email','dateAdded'];
+    const expectedFields = ['id', 'title', 'url', 'explanation', 'email', 'dateAdded'];
     const testId = "ArticlesTable";
 
     expectedHeaders.forEach((headerText) => {
@@ -84,8 +84,8 @@ describe("ArticlesTable tests", () => {
     });
 
     // TODO
-    expect(getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent(5);
-    expect(getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent(6);
+    expect(getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent(1);
+    expect(getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent(2);
     expect(getByTestId(`${testId}-cell-row-0-col-title`)).toHaveTextContent("Things to do in Santa Barbara");
     expect(getByTestId(`${testId}-cell-row-1-col-title`)).toHaveTextContent("Poggers Poggers Poggers");
 
@@ -106,20 +106,20 @@ describe("ArticlesTable tests", () => {
   //   const { getByTestId } = render(
   //     <QueryClientProvider client={queryClient}>
   //       <MemoryRouter>
-  //         <UCSBDatesTable diningCommons={ucsbDatesFixtures.threeDates} currentUser={currentUser} />
+  //         <ArticlesTable articles={articleFixtures.threeArticles} currentUser={currentUser} />
   //       </MemoryRouter>
   //     </QueryClientProvider>
 
   //   );
 
-  //   await waitFor(() => { expect(getByTestId(`UCSBDatesTable-cell-row-0-col-id`)).toHaveTextContent("1"); });
+  //   await waitFor(() => { expect(getByTestId(`ArticlesTable-cell-row-0-col-id`)).toHaveTextContent("1"); });
 
-  //   const editButton = getByTestId(`UCSBDatesTable-cell-row-0-col-Edit-button`);
+  //   const editButton = getByTestId(`ArticlesTable-cell-row-0-col-Edit-button`);
   //   expect(editButton).toBeInTheDocument();
     
   //   fireEvent.click(editButton);
 
-  //   await waitFor(() => expect(mockedNavigate).toHaveBeenCalledWith('/ucsbdates/edit/1'));
+  //   await waitFor(() => expect(mockedNavigate).toHaveBeenCalledWith('/Article/edit/1'));
 
   // });
 
