@@ -3,7 +3,7 @@ import OurTable, { _ButtonColumn } from "main/components/OurTable";
 // import { useNavigate } from "react-router-dom";
 // import { hasRole } from "main/utils/currentUser";
 
-export default function RecommendationsTable({ recommendations, currentUser }) {
+export default function RecommendationsTable({ recommendations, _currentUser }) {
 
     // const navigate = useNavigate();
 
