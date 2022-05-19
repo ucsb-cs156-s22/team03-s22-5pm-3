@@ -17,11 +17,11 @@ const Template = (args) => {
 export const Empty = Template.bind({});
 
 Empty.args = {
-    organizations: []
+    ucsbOrganizations: []
 };
 
 export const ThreeOrganizations = Template.bind({});
 
 ThreeOrganizations.args = {
-    organizations: ucsbOrganizationFixtures.threeOrganizations
+    ucsbOrganizations: ucsbOrganizationFixtures.threeOrganizations
 };
