@@ -7,7 +7,7 @@ import { hasRole } from "main/utils/currentUser";
 
 export function cellToAxiosParamsDelete(cell) {
     return {
-        url: "/api/recommendations",
+        url: "/api/recommendationrequests",
         method: "DELETE",
         params: {
             requesterEmail: cell.row.values.requesterEmail
@@ -27,7 +27,7 @@ export default function RecommendationsTable({ recommendations, currentUser }) {
     const deleteMutation = useBackendMutation(
         cellToAxiosParamsDelete,
         { onSuccess: onDeleteSuccess },
-        ["/api/recommendations/all"]
+        ["/api/recommendationrequests/all"]
     );
     // Stryker enable all 
 
