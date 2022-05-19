@@ -1,4 +1,4 @@
-import { fireEvent, render, waitFor } from "@testing-library/react";
+// import { fireEvent, render, waitFor } from "@testing-library/react";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { MemoryRouter } from "react-router-dom";
 
@@ -9,7 +9,7 @@ import { systemInfoFixtures } from "fixtures/systemInfoFixtures";
 
 import axios from "axios";
 import AxiosMockAdapter from "axios-mock-adapter";
-import mockConsole from "jest-mock-console";
+// import mockConsole from "jest-mock-console";
 import HelpRequestsIndexPage from "main/pages/HelpRequests/HelpRequestsIndexPage";
 
 
@@ -27,7 +27,7 @@ describe("HelpRequestsIndexPage tests", () => {
 
     const axiosMock =new AxiosMockAdapter(axios);
 
-    const testId = "HelpRequestsTable";
+    // const testId = "HelpRequestsTable";
 
     const setupUserOnly = () => {
         axiosMock.reset();
