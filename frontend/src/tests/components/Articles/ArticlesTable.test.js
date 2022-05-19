@@ -84,8 +84,8 @@ describe("ArticlesTable tests", () => {
     });
 
     // TODO
-    expect(getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent(5);
-    expect(getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent(6);
+    expect(getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("1");
+    expect(getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent("2");
     expect(getByTestId(`${testId}-cell-row-0-col-title`)).toHaveTextContent("Things to do in Santa Barbara");
     expect(getByTestId(`${testId}-cell-row-1-col-title`)).toHaveTextContent("Poggers Poggers Poggers");
 

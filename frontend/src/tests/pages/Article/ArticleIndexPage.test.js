@@ -86,9 +86,9 @@ describe("ArticleIndexPage tests", () => {
             </QueryClientProvider>
         );
 
-        await waitFor(  () => { expect(getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent(5); } );
-        expect(getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent(6);
-        expect(getByTestId(`${testId}-cell-row-2-col-id`)).toHaveTextContent(7);
+        await waitFor(  () => { expect(getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("1"); } );
+        expect(getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent("2");
+        expect(getByTestId(`${testId}-cell-row-2-col-id`)).toHaveTextContent("3");
 
     });
 
@@ -105,9 +105,9 @@ describe("ArticleIndexPage tests", () => {
             </QueryClientProvider>
         );
 
-        await waitFor(() => { expect(getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent(5); });
-        expect(getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent(6);
-        expect(getByTestId(`${testId}-cell-row-2-col-id`)).toHaveTextContent(7);
+        await waitFor(() => { expect(getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("1"); });
+        expect(getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent("2");
+        expect(getByTestId(`${testId}-cell-row-2-col-id`)).toHaveTextContent("3");
 
     });
 
@@ -115,7 +115,7 @@ describe("ArticleIndexPage tests", () => {
         setupUserOnly();
 
         const queryClient = new QueryClient();
-        axiosMock.onGet("/api/article/all").timeout();
+        axiosMock.onGet("/api/Article/all").timeout();
 
         const { queryByTestId, getByText } = render(
             <QueryClientProvider client={queryClient}>
@@ -141,8 +141,8 @@ describe("ArticleIndexPage tests", () => {
         setupAdminUser();
 
         const queryClient = new QueryClient();
-        axiosMock.onGet("/api/article/all").reply(200, articleFixtures.threeArticles);
-        axiosMock.onDelete("/api/article").reply(200, "Article with id 5 was deleted");
+        axiosMock.onGet("/api/Article/all").reply(200, articleFixtures.threeArticles);
+        axiosMock.onDelete("/api/Article").reply(200, "Article with id 1 was deleted");
 
 
         const { getByTestId } = render(
@@ -155,7 +155,7 @@ describe("ArticleIndexPage tests", () => {
 
         await waitFor(() => { expect(getByTestId(`${testId}-cell-row-0-col-id`)).toBeInTheDocument(); });
 
-        expect(getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("5"); 
+        expect(getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("1"); 
 
 
         const deleteButton = getByTestId(`${testId}-cell-row-0-col-Delete-button`);
@@ -163,7 +163,7 @@ describe("ArticleIndexPage tests", () => {
        
         fireEvent.click(deleteButton);
 
-        await waitFor(() => { expect(mockToast).toBeCalledWith("Article with id 5 was deleted") });
+        await waitFor(() => { expect(mockToast).toBeCalledWith("Article with id 1 was deleted") });
 
     });
 
