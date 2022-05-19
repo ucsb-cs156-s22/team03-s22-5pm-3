@@ -117,7 +117,7 @@ describe("UCSBOrganizationIndexPage tests", () => {
         const queryClient = new QueryClient();
         axiosMock.onGet("/api/ucsborganization/all").timeout();
 
-        const restoreConsole = mockConsole();
+        //const restoreConsole = mockConsole();
 
         const { queryByTestId, getByText } = render(
             <QueryClientProvider client={queryClient}>
