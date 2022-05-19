@@ -5,7 +5,6 @@ import RecommendationsIndexPage from "main/pages/Recommendations/Recommendations
 
 import { apiCurrentUserFixtures } from "fixtures/currentUserFixtures";
 import { systemInfoFixtures } from "fixtures/systemInfoFixtures";
-import { recommendationsFixtures } from "fixtures/recommendationsFixtures";
 import axios from "axios";
 import AxiosMockAdapter from "axios-mock-adapter";
 import _mockConsole from "jest-mock-console";
@@ -73,34 +72,4 @@ describe("RecommendationsIndexPage tests", () => {
 
     });
 
-    test("renders three recommendations without crashing for regular user", async () => {
-        setupUserOnly();
-        const queryClient = new QueryClient();
-        axiosMock.onGet("/api/recommendationrequests/all").reply(200, recommendationsFixtures.threeRecommendations);
-
-        const { getByTestId } = render(
-            <QueryClientProvider client={queryClient}>
-                <MemoryRouter>
-                    <RecommendationsIndexPage />
-                </MemoryRouter>
-            </QueryClientProvider>
-        );
-
-        await waitFor(  () => { expect(getByTestId(`${testId}-cell-row-0-col-requesterEmail`)).toHaveTextContent("supbub@gmail.com"); } );
-        expect(getByTestId(`${testId}-cell-row-1-col-requesterEmail`)).toHaveTextContent("timetravel@gmail.com");
-        expect(getByTestId(`${testId}-cell-row-2-col-requesterEmail`)).toHaveTextContent("loltown@gmail.com");
-
-    });
-
-    test("renders three recommendations without crashing for admin user", async () => {
-        setupAdminUser();
-        const queryClient = new QueryClient();
-        axiosMock.onGet("/api/recommendationrequests/all").reply(200, recommendationsFixtures.threeRecommendations);
-
-        const { getByTestId } = render(
-            <QueryClientProvider client={queryClient}>
-                <MemoryRouter>
-                    <RecommendationsIndexPage />
-                </MemoryRouter>
-            </QueryClientProvider>
-        );
+});
