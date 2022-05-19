@@ -1,11 +1,15 @@
-import { fireEvent, render, waitFor } from "@testing-library/react";
+import { _fireEvent, render, _waitFor } from "@testing-library/react";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { MemoryRouter } from "react-router-dom";
 import ArticleIndexPage from "main/pages/Article/ArticleIndexPage";
 
 import { apiCurrentUserFixtures } from "fixtures/currentUserFixtures";
 import { systemInfoFixtures } from "fixtures/systemInfoFixtures";
+<<<<<<< HEAD
 //import { articleFixtures } from "fixtures/articleFixtures";
+=======
+import { _articleFixtures } from "fixtures/articleFixtures";
+>>>>>>> main
 import axios from "axios";
 import AxiosMockAdapter from "axios-mock-adapter";
 import _mockConsole from "jest-mock-console";
@@ -25,7 +29,7 @@ describe("ArticleIndexPage tests", () => {
 
     const axiosMock =new AxiosMockAdapter(axios);
 
-    const testId = "ArticlesTable";
+    //const testId = "ArticlesTable";
 
     const setupUserOnly = () => {
         axiosMock.reset();
