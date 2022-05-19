@@ -45,15 +45,15 @@ export default function RecommendationsTable({ recommendations, currentUser }) {
         },
         {
             Header: 'Explanation',
-            id: 'explanation',
+            accessor: 'explanation',
         },
         {
             Header: 'Date Requested',
-            id: 'dateRequested',
+            accessor: 'dateRequested',
         },
         {
             Header: 'Date Needed',
-            id: 'dateNeeded',
+            accessor: 'dateNeeded',
         },
         {
             Header: 'Done',

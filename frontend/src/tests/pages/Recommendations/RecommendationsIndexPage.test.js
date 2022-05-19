@@ -106,6 +106,11 @@ describe("RecommendationsIndexPage tests", () => {
         );
 
         await waitFor(  () => { expect(getByTestId(`${testId}-cell-row-0-col-requesterEmail`)).toHaveTextContent("supbub@gmail.com"); } );
+        expect(getByTestId(`${testId}-cell-row-0-col-professorEmail`)).toHaveTextContent("drbobby@ucsb.edu");
+        expect(getByTestId(`${testId}-cell-row-0-col-explanation`)).toHaveTextContent("PLEASEEEE");
+        expect(getByTestId(`${testId}-cell-row-0-col-dateRequested`)).toHaveTextContent("2022-02-03T00:00:00");
+        expect(getByTestId(`${testId}-cell-row-0-col-dateNeeded`)).toHaveTextContent("2022-02-05T00:00:00");
+        expect(getByTestId(`${testId}-cell-row-0-col-done`)).toHaveTextContent("false");
         expect(getByTestId(`${testId}-cell-row-1-col-requesterEmail`)).toHaveTextContent("timetravel@gmail.com");
         expect(getByTestId(`${testId}-cell-row-2-col-requesterEmail`)).toHaveTextContent("loltown@gmail.com");
 
