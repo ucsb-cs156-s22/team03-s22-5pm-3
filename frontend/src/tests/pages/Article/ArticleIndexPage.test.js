@@ -3,10 +3,9 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { MemoryRouter } from "react-router-dom";
 import ArticleIndexPage from "main/pages/Article/ArticleIndexPage";
 
-
 import { apiCurrentUserFixtures } from "fixtures/currentUserFixtures";
 import { systemInfoFixtures } from "fixtures/systemInfoFixtures";
-import { articleFixtures } from "fixtures/articleFixtures";
+//import { articleFixtures } from "fixtures/articleFixtures";
 import axios from "axios";
 import AxiosMockAdapter from "axios-mock-adapter";
 import _mockConsole from "jest-mock-console";
@@ -45,7 +44,7 @@ describe("ArticleIndexPage tests", () => {
     test("renders without crashing for regular user", () => {
         setupUserOnly();
         const queryClient = new QueryClient();
-        axiosMock.onGet("/api/article/all").reply(200, []);
+        axiosMock.onGet("/api/Article/all").reply(200, []);
 
         render(
             <QueryClientProvider client={queryClient}>
@@ -61,7 +60,7 @@ describe("ArticleIndexPage tests", () => {
     test("renders without crashing for admin user", () => {
         setupAdminUser();
         const queryClient = new QueryClient();
-        axiosMock.onGet("/api/article/all").reply(200, []);
+        axiosMock.onGet("/api/Article/all").reply(200, []);
 
         render(
             <QueryClientProvider client={queryClient}>

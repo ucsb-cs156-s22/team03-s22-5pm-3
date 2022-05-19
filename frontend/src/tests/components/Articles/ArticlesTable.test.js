@@ -1,6 +1,6 @@
 import {  render } from "@testing-library/react";
-import { menuItemReviewsFixtures } from "fixtures/menuItemReviewsFixtures";
-import MenuItemReviewsTable from "main/components/MenuItemReviews/MenuItemReviewsTable";
+import { articleFixtures } from "fixtures/articleFixtures";
+import ArticlesTable from "main/components/Articles/ArticlesTable";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { MemoryRouter } from "react-router-dom";
 import { currentUserFixtures } from "fixtures/currentUserFixtures";
@@ -13,7 +13,7 @@ jest.mock('react-router-dom', () => ({
     useNavigate: () => mockedNavigate
 }));
 
-describe("MenuItemReviewsTable tests", () => {
+describe("ArticlesTable tests", () => {
   const queryClient = new QueryClient();
 
 
@@ -23,7 +23,7 @@ describe("MenuItemReviewsTable tests", () => {
     render(
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
-          <MenuItemReviewsTable menuItemReviews={[]} currentUser={currentUser} />
+          <ArticlesTable articles={[]} currentUser={currentUser} />
         </MemoryRouter>
       </QueryClientProvider>
 
@@ -35,7 +35,7 @@ describe("MenuItemReviewsTable tests", () => {
     render(
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
-          <MenuItemReviewsTable menuItemReviews={[]} currentUser={currentUser} />
+          <ArticlesTable articles={[]} currentUser={currentUser} />
         </MemoryRouter>
       </QueryClientProvider>
 
@@ -48,7 +48,7 @@ describe("MenuItemReviewsTable tests", () => {
     render(
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
-          <MenuItemReviewsTable menuItemReviews={[]} currentUser={currentUser} />
+          <ArticlesTable articles={[]} currentUser={currentUser} />
         </MemoryRouter>
       </QueryClientProvider>
 
@@ -62,16 +62,16 @@ describe("MenuItemReviewsTable tests", () => {
     const { getByText, getByTestId } = render(
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
-          <MenuItemReviewsTable menuItemReviews={menuItemReviewsFixtures.threeMenuItemReviews} currentUser={currentUser} />
+          <ArticlesTable articles={articleFixtures.threeArticles} currentUser={currentUser} />
         </MemoryRouter>
       </QueryClientProvider>
 
     );
 
 
-    const expectedHeaders = ['ID',  'Menu Item ID', 'Reviewer/Critic Email','Number of Stars','Date Reviewed','Comments'];
-    const expectedFields = ['id', 'itemId','reviewerEmail', 'stars','dateReviewed','comments'];
-    const testId = "MenuItemReviewsTable";
+    const expectedHeaders = ['ID', 'Title', 'URL', 'Explanation', 'Email', 'Date Added'];
+    const expectedFields = ['id', 'title','url', 'explanation','email','dateAdded'];
+    const testId = "ArticlesTable";
 
     expectedHeaders.forEach((headerText) => {
       const header = getByText(headerText);
@@ -84,18 +84,18 @@ describe("MenuItemReviewsTable tests", () => {
     });
 
     // TODO
-    expect(getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent(69);
-    expect(getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent(420);
-    expect(getByTestId(`${testId}-cell-row-0-col-itemId`)).toHaveTextContent(123);
-    expect(getByTestId(`${testId}-cell-row-1-col-itemId`)).toHaveTextContent(4);
+    expect(getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent(5);
+    expect(getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent(6);
+    expect(getByTestId(`${testId}-cell-row-0-col-title`)).toHaveTextContent("Things to do in Santa Barbara");
+    expect(getByTestId(`${testId}-cell-row-1-col-title`)).toHaveTextContent("Poggers Poggers Poggers");
 
     // const editButton = getByTestId(`${testId}-cell-row-0-col-Edit-button`);
     // expect(editButton).toBeInTheDocument();
     // expect(editButton).toHaveClass("btn-primary");
 
-    // const deleteButton = getByTestId(`${testId}-cell-row-0-col-Delete-button`);
-    // expect(deleteButton).toBeInTheDocument();
-    // expect(deleteButton).toHaveClass("btn-danger");
+    const deleteButton = getByTestId(`${testId}-cell-row-0-col-Delete-button`);
+    expect(deleteButton).toBeInTheDocument();
+    expect(deleteButton).toHaveClass("btn-danger");
 
   });
 
@@ -125,4 +125,3 @@ describe("MenuItemReviewsTable tests", () => {
 
 
 });
-
