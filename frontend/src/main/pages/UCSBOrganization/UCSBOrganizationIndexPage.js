@@ -1,28 +1,28 @@
 import React from 'react'
-import { useBackend } from 'main/utils/useBackend'; // use prefix indicates a React Hook
-
+import { useBackend } from 'main/utils/useBackend';
 import BasicLayout from "main/layouts/BasicLayout/BasicLayout";
-import HelpRequestsTable from 'main/components/HelpRequests/HelpRequestsTable';
+import UCSBOrganizationTable from 'main/components/UCSBOrganization/UCSBOrganizationTable';
 import { useCurrentUser } from 'main/utils/currentUser' // use prefix indicates a React Hook
 
-export default function HelpRequestsIndexPage() {
+export default function UCSBOrganizationIndexPage() {
 
   const currentUser = useCurrentUser();
 
-  const { data: helprequests, error: _error, status: _status } =
+  const { data: ucsborganizations, error: _error, status: _status } =
     useBackend(
       // Stryker disable next-line all : don't test internal caching of React Query
-      ["/api/helprequests/all"],
+      ["/api/ucsborganization/all"],
             // Stryker disable next-line StringLiteral,ObjectLiteral : since "GET" is default, "" is an equivalent mutation
-            { method: "GET", url: "/api/helprequests/all" },
+            { method: "GET", url: "/api/ucsborganization/all" },
       []
     );
+
 
   return (
     <BasicLayout>
       <div className="pt-2">
-        <h1>HelpRequests</h1>
-        <HelpRequestsTable helpRequests={helprequests} currentUser={currentUser} />
+        <h1>UCSB Organizations</h1>
+        <UCSBOrganizationTable ucsbOrganization={ucsborganizations} currentUser={currentUser} />
       </div>
     </BasicLayout>
   )
