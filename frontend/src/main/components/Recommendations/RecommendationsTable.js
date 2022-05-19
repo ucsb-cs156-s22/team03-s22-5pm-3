@@ -13,6 +13,10 @@ export default function RecommendationsTable({ recommendations, _currentUser }) 
 
     const columns = [
         {
+            Header: 'ID',
+            accessor: 'id', 
+        },
+        {
             Header: 'Requester Email',
             accessor: 'requesterEmail', 
         },

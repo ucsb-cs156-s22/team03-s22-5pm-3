@@ -86,10 +86,6 @@ describe("RecommendationsTable tests", () => {
     expect(getByTestId(`${testId}-cell-row-0-col-requesterEmail`)).toHaveTextContent("supbub@gmail.com");
     expect(getByTestId(`${testId}-cell-row-1-col-requesterEmail`)).toHaveTextContent("timetravel@gmail.com");
 
-    const deleteButton = getByTestId(`${testId}-cell-row-0-col-Delete-button`);
-    expect(deleteButton).toBeInTheDocument();
-    expect(deleteButton).toHaveClass("btn-danger");
-
   });
 
 });
