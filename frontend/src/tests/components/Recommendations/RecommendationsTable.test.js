@@ -67,8 +67,8 @@ describe("RecommendationsTable tests", () => {
 
     );
 
-    const expectedHeaders = ['ID', 'Requester Email', 'Professor Email', 'Date Requested', 'Date Needed', 'Done'];
-    const expectedFields = ['id', 'requesterEmail', 'professorEmail', 'dateRequested', 'dateNeeded', 'done'];
+    const expectedHeaders = ['ID', 'Requester Email', 'Professor Email', 'Explanation', 'Date Requested', 'Date Needed', 'Done'];
+    const expectedFields = ['id', 'requesterEmail', 'professorEmail', 'explanation', 'dateRequested', 'dateNeeded', 'done'];
     const testId = "RecommendationsTable";
 
     expectedHeaders.forEach((headerText) => {
