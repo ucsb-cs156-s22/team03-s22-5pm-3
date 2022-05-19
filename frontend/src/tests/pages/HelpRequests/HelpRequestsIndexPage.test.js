@@ -9,7 +9,7 @@ import { systemInfoFixtures } from "fixtures/systemInfoFixtures";
 
 import axios from "axios";
 import AxiosMockAdapter from "axios-mock-adapter";
-// import mockConsole from "jest-mock-console";
+import mockConsole from "jest-mock-console";
 import HelpRequestsIndexPage from "main/pages/HelpRequests/HelpRequestsIndexPage";
 import { helpRequestsFixtures } from "fixtures/helpRequestsFixtures";
 
@@ -95,10 +95,10 @@ describe("HelpRequestsIndexPage tests", () => {
 
     });
 
-    test("renders three dates without crashing for admin user", async () => {
+    test("renders three help requests without crashing for admin user", async () => {
         setupAdminUser();
         const queryClient = new QueryClient();
-        axiosMock.onGet("/api/ucsbdates/all").reply(200, helpRequestsFixtures.threeHelpRequests);
+        axiosMock.onGet("/api/helprequests/all").reply(200, helpRequestsFixtures.threeHelpRequests);
 
         const { getByTestId } = render(
             <QueryClientProvider client={queryClient}>
