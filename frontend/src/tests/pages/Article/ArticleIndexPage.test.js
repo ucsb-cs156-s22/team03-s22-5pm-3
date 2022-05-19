@@ -76,7 +76,7 @@ describe("ArticleIndexPage tests", () => {
     test("renders three Articles without crashing for regular user", async () => {
         setupUserOnly();
         const queryClient = new QueryClient();
-        axiosMock.onGet("/api/article/all").reply(200, articleFixtures.threeArticles);
+        axiosMock.onGet("/api/Article/all").reply(200, articleFixtures.threeArticles);
 
         const { getByTestId } = render(
             <QueryClientProvider client={queryClient}>
@@ -86,16 +86,16 @@ describe("ArticleIndexPage tests", () => {
             </QueryClientProvider>
         );
 
-        await waitFor(  () => { expect(getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("1"); } );
-        expect(getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent("2");
-        expect(getByTestId(`${testId}-cell-row-2-col-id`)).toHaveTextContent("3");
+        await waitFor(  () => { expect(getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent(1); } );
+        expect(getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent(2);
+        expect(getByTestId(`${testId}-cell-row-2-col-id`)).toHaveTextContent(3);
 
     });
 
     test("renders three diningCommons without crashing for admin user", async () => {
         setupAdminUser();
         const queryClient = new QueryClient();
-        axiosMock.onGet("/api/article/all").reply(200, articleFixtures.threeArticles);
+        axiosMock.onGet("/api/Article/all").reply(200, articleFixtures.threeArticles);
 
         const { getByTestId } = render(
             <QueryClientProvider client={queryClient}>
@@ -105,9 +105,9 @@ describe("ArticleIndexPage tests", () => {
             </QueryClientProvider>
         );
 
-        await waitFor(() => { expect(getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("1"); });
-        expect(getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent("2");
-        expect(getByTestId(`${testId}-cell-row-2-col-id`)).toHaveTextContent("3");
+        await waitFor(() => { expect(getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent(1); });
+        expect(getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent(2);
+        expect(getByTestId(`${testId}-cell-row-2-col-id`)).toHaveTextContent(3);
 
     });
 
