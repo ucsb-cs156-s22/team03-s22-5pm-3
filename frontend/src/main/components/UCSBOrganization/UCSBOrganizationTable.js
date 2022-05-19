@@ -4,7 +4,7 @@ import OurTable, { _ButtonColumn } from "main/components/OurTable";
 // import { useNavigate } from "react-router-dom";
 // import { hasRole } from "main/utils/currentUser";
 
-export default function HelpRequestsTable({ helpRequests, _currentUser }) {
+export default function UCSBOrganizationTable({ ucsbOrganization, _currentUser }) {
 
     // const navigate = useNavigate();
 
@@ -25,35 +25,25 @@ export default function HelpRequestsTable({ helpRequests, _currentUser }) {
 
     const columns = [
         {
-            Header: 'id',
-            accessor: 'id', // accessor is the "key" in the data
+            Header: 'Organization Code',
+            accessor: 'orgCode', // accessor is the "key" in the data
         },
         {
-            Header: 'Requester Email',
-            accessor: 'requesterEmail',
+            Header: 'Organization Short Translation',
+            accessor: 'orgTranslationShort',
         },
         {
-            Header: 'Team ID',
-            accessor: 'teamId',
+            Header: 'Organization Translation',
+            accessor: 'orgTranslation',
         },
         {
-            Header: 'Table or Breakout Room',
-            accessor: 'tableOrBreakoutRoom',
-        },
-        {
-            Header: 'Request Time',
-            accessor: 'requestTime',
-        },
-        {
-            Header: 'Explanation',
-            accessor: 'explanation',
-        },
-        {
-            Header: 'Solved?',
-            id: 'solved',
-            accessor: (row, _rowIndex) => String(row.solved) // hack needed for boolean values to show up
+            Header: 'Inactive?',
+            id: 'inactive',
+            accessor: (row, _rowIndex) => String(row.inactive)
         },
     ];
+
+    const testid = "UCSBOrganizationTable";
 
     // const columnsIfAdmin = [
     //     ...columns,
@@ -66,9 +56,8 @@ export default function HelpRequestsTable({ helpRequests, _currentUser }) {
     const columnsToDisplay = columns;
 
     return <OurTable
-        data={helpRequests}
+        data={ucsbOrganization}
         columns={columnsToDisplay}
-        testid={"HelpRequestsTable"}
+        testid={testid}
     />;
 };
-
