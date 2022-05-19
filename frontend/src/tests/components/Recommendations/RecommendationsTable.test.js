@@ -67,8 +67,8 @@ describe("RecommendationsTable tests", () => {
 
     );
 
-    const expectedHeaders = ['Requester Email', 'Professor Email', 'Date Requested', 'Date Needed', 'Done'];
-    const expectedFields = ['requesterEmail', 'professorEmail', 'dateRequested', 'dateNeeded', 'done'];
+    const expectedHeaders = ['ID', 'Requester Email', 'Professor Email', 'Date Requested', 'Date Needed', 'Done'];
+    const expectedFields = ['id', 'requesterEmail', 'professorEmail', 'dateRequested', 'dateNeeded', 'done'];
     const testId = "RecommendationsTable";
 
     expectedHeaders.forEach((headerText) => {
@@ -81,6 +81,8 @@ describe("RecommendationsTable tests", () => {
       expect(header).toBeInTheDocument();
     });
 
+    expect(getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("1");
+    expect(getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent("2");
     expect(getByTestId(`${testId}-cell-row-0-col-requesterEmail`)).toHaveTextContent("supbub@gmail.com");
     expect(getByTestId(`${testId}-cell-row-1-col-requesterEmail`)).toHaveTextContent("timetravel@gmail.com");
 
