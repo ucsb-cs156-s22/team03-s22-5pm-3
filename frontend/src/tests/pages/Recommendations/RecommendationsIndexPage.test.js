@@ -1,4 +1,4 @@
-import { _fireEvent, render, waitFor } from "@testing-library/react";
+import { fireEvent, render, waitFor } from "@testing-library/react";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { MemoryRouter } from "react-router-dom";
 import RecommendationsIndexPage from "main/pages/Recommendations/RecommendationsIndexPage";
@@ -107,6 +107,7 @@ describe("RecommendationsIndexPage tests", () => {
 
         await waitFor(  () => { expect(getByTestId(`${testId}-cell-row-0-col-requesterEmail`)).toHaveTextContent("supbub@gmail.com"); } );
         expect(getByTestId(`${testId}-cell-row-0-col-professorEmail`)).toHaveTextContent("drbobby@ucsb.edu");
+        expect(getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("1");
         expect(getByTestId(`${testId}-cell-row-0-col-explanation`)).toHaveTextContent("PLEASEEEE");
         expect(getByTestId(`${testId}-cell-row-0-col-dateRequested`)).toHaveTextContent("2022-02-03T00:00:00");
         expect(getByTestId(`${testId}-cell-row-0-col-dateNeeded`)).toHaveTextContent("2022-02-05T00:00:00");
@@ -132,7 +133,7 @@ describe("RecommendationsIndexPage tests", () => {
 
         await waitFor(() => { expect(axiosMock.history.get.length).toBeGreaterThanOrEqual(3); });
 
-        const expectedHeaders = ['Requester Email', 'Professor Email', 'Date Requested', 'Date Needed', 'Done'];
+        const expectedHeaders = ['ID', 'Requester Email', 'Professor Email', 'Date Requested', 'Date Needed', 'Done'];
 
         expectedHeaders.forEach((headerText) => {
           const header = getByText(headerText);
@@ -140,6 +141,35 @@ describe("RecommendationsIndexPage tests", () => {
         });
 
         expect(queryByTestId(`${testId}-cell-row-0-col-requesterEmail`)).not.toBeInTheDocument();
+    });
+
+    test("test what happens when you click delete, admin", async () => {
+        setupAdminUser();
+
+        const queryClient = new QueryClient();
+        axiosMock.onGet("/api/recommendationrequests/all").reply(200, recommendationsFixtures.threeRecommendations);
+        axiosMock.onDelete("/api/recommendationrequests",  {params: {requesterEmail: "supbub@gmail.com"}}).reply(200, "Recommendation with requesterEmail supbub@gmail.com was deleted");
+
+        const { getByTestId } = render(
+            <QueryClientProvider client={queryClient}>
+                <MemoryRouter>
+                    <RecommendationsIndexPage />
+                </MemoryRouter>
+            </QueryClientProvider>
+        );
+
+        await waitFor(() => { expect(getByTestId(`${testId}-cell-row-0-col-requesterEmail`)).toBeInTheDocument(); });
+
+        expect(getByTestId(`${testId}-cell-row-0-col-requesterEmail`)).toHaveTextContent("supbub@gmail.com"); 
+
+
+        const deleteButton = getByTestId(`${testId}-cell-row-0-col-Delete-button`);
+        expect(deleteButton).toBeInTheDocument();
+
+        fireEvent.click(deleteButton);
+
+        await waitFor(() => { expect(mockToast).toBeCalledWith("Recommendation with requesterEmail supbub@gmail.com was deleted") });
+
     });
 
 });
