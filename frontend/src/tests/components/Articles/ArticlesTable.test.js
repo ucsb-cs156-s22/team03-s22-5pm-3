@@ -1,4 +1,4 @@
-import {  render } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import { articleFixtures } from "fixtures/articleFixtures";
 import ArticlesTable from "main/components/Articles/ArticlesTable";
 import { QueryClient, QueryClientProvider } from "react-query";
