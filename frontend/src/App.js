@@ -21,6 +21,10 @@ import RecommendationsIndexPage from "main/pages/Recommendations/Recommendations
 
 import UCSBOrganizationIndexPage from "main/pages/UCSBOrganization/UCSBOrganizationIndexPage";
 
+import UCSBDiningCommonsMenuItemIndexPage from "main/pages/UCSBDiningCommonsMenuItem/UCSBDiningCommonsMenuItemIndexPage";
+
+import HelpRequestsIndexPage from "main/pages/HelpRequests/HelpRequestsIndexPage";
+
 import { hasRole, useCurrentUser } from "main/utils/currentUser";
 
 import "bootstrap/dist/css/bootstrap.css";
@@ -94,6 +98,20 @@ function App() {
           hasRole(currentUser, "ROLE_USER") && (
             <>
               <Route exact path="/ucsborganization/list" element={<UCSBOrganizationIndexPage />} />
+            </>
+          )
+        }
+        {
+          hasRole(currentUser, "ROLE_USER") && (
+            <>
+              <Route exact path="/ucsbdiningcommonsmenuitem/list" element={<UCSBDiningCommonsMenuItemIndexPage />} />
+            </>
+          )
+        }
+        {
+          hasRole(currentUser, "ROLE_USER") && (
+            <>
+              <Route exact path="/helprequests/list" element={<HelpRequestsIndexPage />} />
             </>
           )
         }
