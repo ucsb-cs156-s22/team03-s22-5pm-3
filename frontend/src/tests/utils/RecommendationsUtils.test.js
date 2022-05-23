@@ -36,7 +36,7 @@ describe("Recommendations", () => {
 
         test("It returns the correct params", () => {
             // arrange
-            const cell = { row: { values: { requesterEmail: "supbub@gmail.com" } } };
+            const cell = { row: { values: { id: "1" } } };
 
             // act
             const result = cellToAxiosParamsDelete(cell);
@@ -45,7 +45,7 @@ describe("Recommendations", () => {
             expect(result).toEqual({
                 url: "/api/recommendationrequests",
                 method: "DELETE",
-                params: { requesterEmail: "supbub@gmail.com" }
+                params: { id: "1" }
             });
         });
 

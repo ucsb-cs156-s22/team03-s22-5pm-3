@@ -10,7 +10,7 @@ export function cellToAxiosParamsDelete(cell) {
         url: "/api/recommendationrequests",
         method: "DELETE",
         params: {
-            requesterEmail: cell.row.values.requesterEmail
+            id: cell.row.values.id
         }
     }
 }
