@@ -1,4 +1,4 @@
-# STARTER-team03
+# team03-s22-5pm-3
 
 [![codecov](https://codecov.io/gh/ucsb-cs156-s22/team03-s22-5pm-3/branch/main/graph/badge.svg?token=SSz7cD7GUT)](https://codecov.io/gh/ucsb-cs156-s22/team03-s22-5pm-3)
 
@@ -8,8 +8,6 @@
 
 * Storybook (production): <https://ucsb-cs156-s22.github.io/team03-s22-5pm-3-docs>
 * Storybook (development/qa): <https://ucsb-cs156-s22.github.io/team03-s22-5pm-3-docs-qa>
-
-TODO: Leave the results of the TODOS, but remove all of the TODO instructions from the readme.
 
 # Setup before running application
 
