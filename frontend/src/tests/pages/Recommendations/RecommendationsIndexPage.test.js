@@ -140,7 +140,7 @@ describe("RecommendationsIndexPage tests", () => {
           expect(header).toBeInTheDocument();
         });
 
-        expect(queryByTestId(`${testId}-cell-row-0-col-requesterEmail`)).not.toBeInTheDocument();
+        expect(queryByTestId(`${testId}-cell-row-0-col-id`)).not.toBeInTheDocument();
     });
 
     test("test what happens when you click delete, admin", async () => {
@@ -148,7 +148,7 @@ describe("RecommendationsIndexPage tests", () => {
 
         const queryClient = new QueryClient();
         axiosMock.onGet("/api/recommendationrequests/all").reply(200, recommendationsFixtures.threeRecommendations);
-        axiosMock.onDelete("/api/recommendationrequests",  {params: {requesterEmail: "supbub@gmail.com"}}).reply(200, "Recommendation with requesterEmail supbub@gmail.com was deleted");
+        axiosMock.onDelete("/api/recommendationrequests").reply(200, "Recommendation with id 1 was deleted");
 
         const { getByTestId } = render(
             <QueryClientProvider client={queryClient}>
@@ -158,9 +158,9 @@ describe("RecommendationsIndexPage tests", () => {
             </QueryClientProvider>
         );
 
-        await waitFor(() => { expect(getByTestId(`${testId}-cell-row-0-col-requesterEmail`)).toBeInTheDocument(); });
+        await waitFor(() => { expect(getByTestId(`${testId}-cell-row-0-col-id`)).toBeInTheDocument(); });
 
-        expect(getByTestId(`${testId}-cell-row-0-col-requesterEmail`)).toHaveTextContent("supbub@gmail.com"); 
+        expect(getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("1"); 
 
 
         const deleteButton = getByTestId(`${testId}-cell-row-0-col-Delete-button`);
@@ -168,9 +168,11 @@ describe("RecommendationsIndexPage tests", () => {
 
         fireEvent.click(deleteButton);
 
-        await waitFor(() => { expect(mockToast).toBeCalledWith("Recommendation with requesterEmail supbub@gmail.com was deleted") });
+        await waitFor(() => { expect(mockToast).toBeCalledWith("Recommendation with id 1 was deleted") });
 
     });
 
 });
+
+
 
